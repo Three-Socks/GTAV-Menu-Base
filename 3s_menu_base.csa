@@ -469,11 +469,14 @@ Return 1 1
 :menu_set_title
 Function 1 1 4
 
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_set_title_end
 getF 0
 StaticSet1 10
 
 :Label_menu_set_title_end
-Return 0 0
+Return 1 0
 
 :menu_addItem
 Function 1 1 4
