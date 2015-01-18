@@ -97,7 +97,7 @@ PushString "CANCEL"
 PushString "HUD_FRONTEND_DEFAULT_SOUNDSET"
 CallNative play_sound_frontend 3 0
 
-Call @menu_close
+Call @menu_shutdown
 
 :Label_catch_load_2
 Call @menu_get_open_state
@@ -438,7 +438,7 @@ Call @menu_get_action_mode
 JumpNE @Label_action2
 iPush_0
 StaticSet1 7
-Call @menu_close
+Call @menu_shutdown
 Jump @Label_action_end
 
 :Label_action2
