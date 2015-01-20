@@ -123,7 +123,7 @@ Static_327[* 50]
 // menu_just_opened
 Static_378
 
-// menu_stored_selected
+// menu_stored_data
 Static_379[* 50]
 
 // Project
