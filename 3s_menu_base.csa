@@ -428,8 +428,17 @@ JumpNE @Label_action4
 
 Call @menu_set
 
+Call @menu_get_continue_action
+JumpFalse @Label_action4_continue
 iPush_0
-StaticSet1 7
+Call @menu_set_continue_action
+Jump @Label_action4_goto_end
+
+:Label_action4_continue
+iPush_0
+Call @menu_set_action_mode
+
+:Label_action4_goto_end
 Jump @Label_action_end
 
 :Label_action4
@@ -437,7 +446,7 @@ iPush_2
 Call @menu_get_action_mode
 JumpNE @Label_action2
 iPush_0
-StaticSet1 7
+Call @menu_set_action_mode
 Call @menu_shutdown
 Jump @Label_action_end
 
@@ -447,7 +456,7 @@ Call @menu_get_action_mode
 JumpNE @Label_action_end
 
 iPush_0
-StaticSet1 7
+Call @menu_set_action_mode
 
 iPush_6
 StaticGet1 4
@@ -471,7 +480,7 @@ StaticGet1 4
 CallNative get_onscreen_keyboard_result 0 1
 Call @menu_set_number
 iPush_1
-StaticSet1 7
+Call @menu_set_action_mode
 
 :Label_action_keyboard_goto_end
 Jump @Label_action_end
@@ -620,6 +629,39 @@ Function 1 0 4
 
 StaticGet1 7
 Return 0 1
+
+:menu_set_action_mode
+Function 1 1 4
+
+getF 0
+StaticSet1 7
+Return 0 0
+
+:menu_get_sub_action_mode
+Function 1 0 4
+
+StaticGet1 26
+Return 0 1
+
+:menu_set_sub_action_mode
+Function 1 1 4
+
+getF 0
+StaticSet1 26
+Return 0 0
+
+:menu_get_continue_action
+Function 1 0 4
+
+StaticGet1 31
+Return 0 1
+
+:menu_set_continue_action
+Function 1 1 4
+
+getF 0
+StaticSet1 31
+Return 0 0
 
 :menu_get_current_level
 Function 1 0 4
@@ -1444,7 +1486,7 @@ StaticSet1 4
 iPush_-1
 StaticSet1 5
 iPush_0
-StaticSet1 7
+Call @menu_set_action_mode
 iPush_0
 StaticSet1 8
 
@@ -2526,7 +2568,7 @@ Jump @Label_catch_select_button_press_goto_end
 
 :Label_catch_select_button_press_2
 iPush_1
-StaticSet1 7
+Call @menu_set_action_mode
 
 :Label_catch_select_button_press_goto_end
 Jump @Label_catch_select_button_press_end
@@ -2563,7 +2605,7 @@ PushString "HUD_FRONTEND_DEFAULT_SOUNDSET"
 CallNative play_sound_frontend 3 0
 
 iPush_2
-StaticSet1 7
+Call @menu_set_action_mode
 
 :Label_catch_select_button_press_goto_end2
 Jump @Label_catch_select_button_press_end
@@ -2575,7 +2617,7 @@ CallNative is_disabled_control_just_pressed 2 1
 JumpFalse @Label_catch_select_button_press_end
 
 iPush_3
-StaticSet1 7
+Call @menu_set_action_mode
 
 :Label_catch_select_button_press_end
 Return 0 0
@@ -2626,9 +2668,9 @@ Return 1 1
 Function 1 1 36
 
 iPush_3
-StaticSet1 7
+Call @menu_set_action_mode
 
-StaticGet1 26
+Call @menu_get_sub_action_mode
 Switch [0 @Label_menu_keyboard_switch_0]:[1 @Label_menu_keyboard_switch_1]
 Jump @Label_menu_keyboard_end
 
@@ -2646,7 +2688,7 @@ setF 5
 :Label_menu_keyboard_1
 
 iPush_1
-StaticSet1 26
+Call @menu_set_sub_action_mode
 
 iPush_0
 StaticGet1 29
@@ -2706,9 +2748,9 @@ Return 1 1
 
 :Label_menu_keyboard_update_3
 iPush_0
-StaticSet1 7
+Call @menu_set_action_mode
 iPush_0
-StaticSet1 26
+Call @menu_set_sub_action_mode
 iPush_0
 StaticSet1 28
 iPush_0
@@ -2716,9 +2758,9 @@ Return 1 1
 
 :Label_menu_keyboard_update_2
 iPush_0
-StaticSet1 7
+Call @menu_set_action_mode
 iPush_0
-StaticSet1 26
+Call @menu_set_sub_action_mode
 iPush_0
 StaticSet1 28
 iPush_0
@@ -2726,9 +2768,9 @@ Return 1 1
 
 :Label_menu_keyboard_update_1
 iPush_0
-StaticSet1 7
+Call @menu_set_action_mode
 iPush_0
-StaticSet1 26
+Call @menu_set_sub_action_mode
 iPush_0
 StaticSet1 28
 iPush_1
@@ -2932,9 +2974,9 @@ StaticSet1 23
 iPush_-1
 StaticSet1 5
 iPush_0
-StaticSet1 7
+Call @menu_set_action_mode
 iPush_0
-StaticSet1 26
+Call @menu_set_sub_action_mode
 
 iPush_0
 StaticSet1 28
