@@ -635,6 +635,29 @@ pstatic2 61
 ArrayGet1 1
 Return 1 1
 
+:menu_get_stored_data
+Function 1 5 0
+
+getF1 0
+pstatic2 379
+ArrayGet1 1
+Return 1 1
+
+:menu_set_stored_data
+Function 1 5 0
+
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_set_stored_data_end
+
+getF1 0
+Call @menu_get_count
+pstatic2 379
+ArraySet1 1
+
+:Label_menu_set_stored_data_end
+Return 1 0
+
 :menu_set_title
 Function 1 4 0
 
@@ -650,6 +673,10 @@ Return 1 0
 :menu_addItem
 Function 1 4 0
 
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_addItem_end
+
 Call @menu_get_count
 Add1 1
 StaticSet1 5
@@ -664,6 +691,10 @@ Return 1 0
 
 :menu_addItem_add_number
 Function 2 5 0
+
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_addItem_add_number_end
 
 Call @menu_get_count
 Add1 1
@@ -690,6 +721,10 @@ Return 2 0
 :menu_addItem_gxt_add_number
 Function 2 5 0
 
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_addItem_gxt_add_number_end
+
 Call @menu_get_count
 Add1 1
 StaticSet1 5
@@ -714,6 +749,10 @@ Return 2 0
 
 :menu_addItem_gxt_add_number2
 Function 2 5 0
+
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_addItem_gxt_add_number2_end
 
 Call @menu_get_count
 Add1 1
@@ -740,6 +779,10 @@ Return 2 0
 :menu_addItem_gxt_number
 Function 2 5 0
 
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_addItem_gxt_number_end
+
 Call @menu_get_count
 Add1 1
 StaticSet1 5
@@ -764,6 +807,10 @@ Return 2 0
 
 :menu_addItem_number
 Function 3 5 0
+
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_addItem_number_end
 
 push_1
 Call @menu_get_count
@@ -791,6 +838,10 @@ Return 3 0
 :menu_addItem_number_format
 Function 3 5 0
 
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_addItem_number_format_end
+
 Push1 13
 Call @menu_get_count
 pstatic1 123
@@ -816,6 +867,10 @@ Return 3 0
 
 :menu_add_number
 Function 1 4 0
+
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_add_number_end
 
 getF1 0
 Call @menu_get_count
@@ -853,6 +908,10 @@ Return 1 1
 :menu_addItem_float
 Function 3 5 0
 
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_addItem_float_end
+
 push_2
 Call @menu_get_count
 pstatic1 123
@@ -879,10 +938,16 @@ Return 3 0
 :menu_add_data_2
 Function 1 4 0
 
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_add_data_2_end
+
 getF1 0
 Call @menu_get_count
 pstatic2 327
 ArraySet1 1
+
+:Label_menu_add_data_2_end
 Return 1 0
 
 :menu_get_current_data_2
@@ -895,6 +960,10 @@ Return 0 1
 
 :menu_addItem_bool
 Function 1 4 0
+
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_addItem_bool_end
 
 push_3
 Call @menu_get_count
@@ -965,6 +1034,10 @@ Return 1 1
 :menu_addItem_gxt_veh_hash
 Function 1 4 0
 
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_addItem_gxt_veh_hash_end
+
 Call @menu_get_count
 Add1 1
 StaticSet1 5
@@ -984,6 +1057,10 @@ Return 1 0
 
 :menu_addItem_keyboard
 Function 3 5 0
+
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_addItem_keyboard_end
 
 Call @menu_get_count
 Add1 1
@@ -1012,6 +1089,10 @@ Return 3 0
 
 :menu_addItem_number_keyboard
 Function 4 6 0
+
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_addItem_number_keyboard_end
 
 push_7
 Call @menu_get_count
@@ -1042,6 +1123,10 @@ Return 4 0
 :menu_addItem_number_format_keyboard
 Function 4 6 0
 
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_addItem_number_format_keyboard_end
+
 Push1 14
 Call @menu_get_count
 pstatic1 123
@@ -1070,6 +1155,10 @@ Return 4 0
 
 :menu_addItem_float_keyboard
 Function 4 6 0
+
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_addItem_float_keyboard_end
 
 Push1 12
 Call @menu_get_count
@@ -1116,6 +1205,10 @@ Return 0 1
 :menu_add_extra
 Function 1 4 0
 
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_add_extra_end
+
 getF1 0
 Call @menu_get_count
 pstatic1 174
@@ -1134,6 +1227,10 @@ Return 1 1
 
 :menu_addItem_action
 Function 1 4 0
+
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_addItem_action_end
 
 Call @menu_get_count
 Add1 1
@@ -1155,6 +1252,10 @@ Return 1 0
 :menu_add_action
 Function 0 4 0
 
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_add_action_end
+
 push_1
 Call @menu_get_count
 pstatic2 225
@@ -1165,6 +1266,10 @@ Return 0 0
 
 :menu_addItem_frontend
 Function 2 4 0
+
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_addItem_frontend
 
 StaticGet1 46
 Add1 1
@@ -1180,14 +1285,20 @@ StaticGet1 46
 pstatic1 54
 ArraySet1 1
 
+:Label_menu_addItem_frontend
 Return 2 0
 
 :menu_set_catch_button_id
 Function 1 4 0
 
+Call @menu_get_action_mode
+Not
+JumpFalse @Label_menu_set_catch_button_id_end
+
 getF1 0
 StaticSet1 30
 
+:Label_menu_set_catch_button_id_end
 Return 1 0
 
 :menu_get_catch_button_id
