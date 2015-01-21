@@ -638,7 +638,7 @@ Function 1 1 4
 
 getF 0
 StaticSet1 7
-Return 0 0
+Return 1 0
 
 :menu_get_sub_action_mode
 Function 1 0 4
@@ -651,7 +651,7 @@ Function 1 1 4
 
 getF 0
 StaticSet1 26
-Return 0 0
+Return 1 0
 
 :menu_get_continue_action
 Function 1 0 4
@@ -664,7 +664,7 @@ Function 1 1 4
 
 getF 0
 StaticSet1 31
-Return 0 0
+Return 1 0
 
 :menu_get_current_level
 Function 1 0 4
