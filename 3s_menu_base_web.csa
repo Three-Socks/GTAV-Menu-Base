@@ -420,7 +420,7 @@ Return 0 0
 Return 0 0
 
 :menu_action
-Function 0 3 0
+Function 0 26 0
 
 push_1
 Call @menu_get_action_mode
