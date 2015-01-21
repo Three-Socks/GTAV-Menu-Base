@@ -430,6 +430,9 @@ Call @menu_set
 
 Call @menu_get_continue_action
 JumpFalse @Label_action4_continue
+iPush_1
+Call @menu_set_action_mode
+
 iPush_0
 Call @menu_set_continue_action
 Jump @Label_action4_goto_end
