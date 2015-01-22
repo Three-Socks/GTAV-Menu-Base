@@ -1,5 +1,5 @@
 /*
-	Statics 1-327 Menu reserved
+	Statics 1-499 Menu reserved
 */
 
 // (float) menu_x
@@ -126,7 +126,25 @@ Static_378
 // menu_stored_data
 Static_379[* 50]
 
+// (char) custom bool string off/no
+Static_430
+
+// (char) custom bool string on/yes
+Static_431
+
+// (uint) custom float dp
+Static_432
+
+// Fonts (0-7)
+Static_433 = 0;
+
+// Menu Position (0 = Left, 1 = Right)
+Static_434 = 0;
+
+// Menu Sound Effects (0 = Off, 1 = On)
+Static_435 = 1;
+
 // Project
 
 // project_var
-Static_430
+Static_500
