@@ -92,10 +92,8 @@ pstatic2 61
 ArraySet1 1
 Call @menu_clean
 
-push_-1
 PushString "CANCEL"
-PushString "HUD_FRONTEND_DEFAULT_SOUNDSET"
-CallNative "play_sound_frontend" 3 0
+Call @menu_play_sound
 
 Call @menu_shutdown
 
@@ -129,10 +127,8 @@ StaticSet1 11
 Call @menu_clean
 push_1
 StaticSet2 378
-push_-1
 PushString "SELECT"
-PushString "HUD_FRONTEND_DEFAULT_SOUNDSET"
-CallNative "play_sound_frontend" 3 0
+Call @menu_play_sound
 
 :Label_catch_load_4
 Call @project_load_pressed
@@ -713,6 +709,49 @@ getF1 0
 StaticSet1 10
 
 :Label_menu_set_title_end
+Return 1 0
+
+:menu_set_bool_strings
+Function 2 5 0
+
+getF1 0
+StaticSet2 430
+
+getF1 1
+StaticSet2 431
+
+Return 2 0
+
+:menu_set_float_dp
+Function 1 4 0
+
+getF1 0
+StaticSet2 432
+
+Return 1 0
+
+:menu_set_font
+Function 1 4 0
+
+getF1 0
+StaticSet2 433
+
+Return 1 0
+
+:menu_set_menu_align
+Function 1 4 0
+
+getF1 0
+StaticSet2 434
+
+Return 1 0
+
+:menu_set_sfx
+Function 1 4 0
+
+getF1 0
+StaticSet2 435
+
 Return 1 0
 
 :menu_addItem
@@ -1482,8 +1521,18 @@ Return 3 0
 
 :menu_setup
 Function 0 2 0
+
+push_0
+StaticGet2 434
+JumpNE @Label_position_setup_right
 fPush 0.0546875
 StaticSet1 3
+Jump @Label_position_setup_end
+:Label_position_setup_right
+fPush 0.7546875
+StaticSet1 3
+:Label_position_setup_end
+
 push_0
 StaticSet1 4
 push_-1
@@ -1531,6 +1580,19 @@ StaticSet1 45
 
 push_-1
 StaticSet1 46
+
+PushString "PIM_DHIGH0"
+PushString "PIM_DHIGH1"
+Call @menu_set_bool_strings
+
+push_4
+Call @menu_set_float_dp
+
+push_0
+Call @menu_set_font
+
+push_1
+Call @menu_set_sfx
 
 Return 0 0
 
@@ -2006,10 +2068,8 @@ setF1 6
 push_1
 Call @menu_down_pressed
 JumpFalse @Label_catch_up_button_press
-push_-1
 PushString "NAV_UP_DOWN"
-PushString "HUD_FRONTEND_DEFAULT_SOUNDSET"
-CallNative "play_sound_frontend" 3 0
+Call @menu_play_sound
 Call @menu_get_current_item
 getF1 3
 JumpGE @Label_catch_button_press_1
@@ -2056,10 +2116,8 @@ Jump @Label_catch_button_press_end
 push_1
 Call @menu_up_pressed
 JumpFalse @Label_catch_left_button_press
-push_-1
 PushString "NAV_UP_DOWN"
-PushString "HUD_FRONTEND_DEFAULT_SOUNDSET"
-CallNative "play_sound_frontend" 3 0
+Call @menu_play_sound
 Call @menu_get_current_item
 push_0
 JumpLE @Label_catch_button_press_4
@@ -2209,10 +2267,8 @@ pstatic2 276
 ArraySet1 1
 
 :Label_catch_button_press_goto_7
-push_-1
 PushString "NAV_LEFT_RIGHT"
-PushString "HUD_FRONTEND_DEFAULT_SOUNDSET"
-CallNative "play_sound_frontend" 3 0
+Call @menu_play_sound
 Jump @Label_catch_button_press_goto_7_1
 
 :Label_catch_button_press_left_float
@@ -2295,10 +2351,8 @@ pstatic2 276
 ArraySet1 1
 
 :Label_catch_button_press_goto_7_2
-push_-1
 PushString "NAV_LEFT_RIGHT"
-PushString "HUD_FRONTEND_DEFAULT_SOUNDSET"
-CallNative "play_sound_frontend" 3 0
+Call @menu_play_sound
 
 :Label_catch_button_press_goto_7_1
 Jump @Label_catch_button_press_end
@@ -2374,10 +2428,8 @@ pstatic2 276
 ArraySet1 1
 
 :Label_catch_button_press_right_goto_7
-push_-1
 PushString "NAV_LEFT_RIGHT"
-PushString "HUD_FRONTEND_DEFAULT_SOUNDSET"
-CallNative "play_sound_frontend" 3 0
+Call @menu_play_sound
 Jump @Label_catch_button_press_end
 
 :Label_catch_button_press_right_float
@@ -2451,10 +2503,8 @@ pstatic2 276
 ArraySet1 1
 
 :Label_catch_button_press_right_float_2
-push_-1
 PushString "NAV_LEFT_RIGHT"
-PushString "HUD_FRONTEND_DEFAULT_SOUNDSET"
-CallNative "play_sound_frontend" 3 0
+Call @menu_play_sound
 
 :Label_catch_button_press_end
 StaticGet1 14
@@ -2540,10 +2590,8 @@ JumpFalse @Label_741
 StaticGet1 17
 push_2
 JumpGE @Label_catch_select_button_press_goto_end
-push_-1
 PushString "SELECT"
-PushString "HUD_FRONTEND_DEFAULT_SOUNDSET"
-CallNative "play_sound_frontend" 3 0
+Call @menu_play_sound
 
 push_1
 Call @menu_get_current_item
@@ -2586,10 +2634,8 @@ push_0
 Call @menu_get_current_level
 JumpEq @Label_catch_select_button_press_3
 
-push_-1
 PushString "BACK"
-PushString "HUD_FRONTEND_DEFAULT_SOUNDSET"
-CallNative "play_sound_frontend" 3 0
+Call @menu_play_sound
 
 push_0
 StaticSet1 11
@@ -2602,10 +2648,8 @@ Call @menu_clean
 Jump @Label_catch_select_button_press_goto_end2
 
 :Label_catch_select_button_press_3
-push_-1
 PushString "CANCEL"
-PushString "HUD_FRONTEND_DEFAULT_SOUNDSET"
-CallNative "play_sound_frontend" 3 0
+Call @menu_play_sound
 
 push_2
 Call @menu_set_action_mode
@@ -2666,6 +2710,20 @@ Return 2 1
 Function 1 3 0
 getF1 0
 Return 1 1
+
+:menu_play_sound
+Function 1 3 0
+
+StaticGet2 435
+JumpFalse @Label_menu_play_sound_end
+
+push_-1
+getF1 0
+PushString "HUD_FRONTEND_DEFAULT_SOUNDSET"
+CallNative "play_sound_frontend" 3 0
+
+:Label_menu_play_sound_end
+Return 1 0
 
 :menu_keyboard
 Function 1 36 0
@@ -3031,7 +3089,9 @@ getF1 6
 ItoF
 fMul
 setF1 7
-fPush 0.05
+StaticGet1 3
+fPush 0.0046875
+fSub
 fPush 0.084722
 fPush 0.225
 getF1 7
@@ -3040,7 +3100,9 @@ getF1 3
 getF1 4
 getF1 5
 Call @draw_rect
-fPush 0.05
+StaticGet1 3
+fPush 0.0046875
+fSub
 fPush 0.04999922
 fPush 0.225
 StaticGet1 22
@@ -3054,7 +3116,9 @@ Call @menu_get_count
 StaticGet1 24
 JumpLE @Label_menu_draw_window_end
 
-fPush 0.05
+StaticGet1 3
+fPush 0.0046875
+fSub
 getF1 7
 StaticGet1 22
 fAdd
@@ -3538,10 +3602,10 @@ Call @menu_get_count
 Add1 1
 setF1 9
 
-PushString "PIM_DHIGH0"
+StaticGet2 430
 setF1 10
 
-PushString "PIM_DHIGH1"
+StaticGet2 431
 setF1 11
 
 push_1
@@ -3564,10 +3628,14 @@ setF1 16
 push_0
 setF1 17
 
+StaticGet2 433
+fPush_0.0
+fPush 0.35
 getF1 12
 getF1 13
 getF1 14
 fPush_1.0
+push_0
 push_0
 Call @set_up_draw
 StaticGet1 10
@@ -3578,6 +3646,9 @@ Call @draw_string
 Call @menu_get_count
 StaticGet1 24
 JumpLE @Label_draw_menu_LOOP
+StaticGet2 433
+fPush_0.0
+fPush 0.35
 getF1 12
 getF1 13
 getF1 14
@@ -3585,6 +3656,7 @@ StaticGet1 3
 fPush 0.215625
 fAdd
 push_1
+push_0
 Call @set_up_draw
 Call @menu_get_current_item
 Add1 1
@@ -3630,7 +3702,9 @@ setF1 7
 getF1 3
 Call @menu_get_current_item
 JumpNE @Label_draw_menu_2
-fPush 0.05
+StaticGet1 3
+fPush 0.0046875
+fSub
 getF1 7
 fPush 0.225
 getF1 8
@@ -3652,10 +3726,14 @@ getF1 3
 pstatic1 123
 ArrayGet1 1
 JumpNE @Label_draw_menu_gxt_veh_hash_end
+StaticGet2 433
+fPush_0.0
+fPush 0.35
 getF1 18
 getF1 19
 getF1 20
 fPush_1.0
+push_0
 push_0
 Call @set_up_draw
 getF1 3
@@ -3673,10 +3751,14 @@ getF1 3
 pstatic1 123
 ArrayGet1 1
 JumpNE @Label_draw_menu_keyboard_end
+StaticGet2 433
+fPush_0.0
+fPush 0.35
 getF1 18
 getF1 19
 getF1 20
 fPush_1.0
+push_0
 push_0
 Call @set_up_draw
 getF1 3
@@ -3686,6 +3768,9 @@ StaticGet1 3
 getF1 5
 Call @draw_string
 
+StaticGet2 433
+fPush_0.0
+fPush 0.35
 getF1 18
 getF1 19
 getF1 20
@@ -3693,6 +3778,7 @@ StaticGet1 3
 fPush 0.203125
 fAdd
 push_1
+push_0
 Call @set_up_draw
 getF1 3
 pstatic2 276
@@ -3709,10 +3795,14 @@ pstatic1 123
 ArrayGet1 1
 JumpNE @Label_draw_menu_number_add_end
 
+StaticGet2 433
+fPush_0.0
+fPush 0.35
 getF1 18
 getF1 19
 getF1 20
 fPush_1.0
+push_0
 push_0
 Call @set_up_draw
 getF1 3
@@ -3727,10 +3817,14 @@ pstatic1 123
 ArrayGet1 1
 JumpNE @Label_draw_menu_gxt_number_add_end
 
+StaticGet2 433
+fPush_0.0
+fPush 0.35
 getF1 18
 getF1 19
 getF1 20
 fPush_1.0
+push_0
 push_0
 Call @set_up_draw
 getF1 3
@@ -3745,10 +3839,14 @@ pstatic1 123
 ArrayGet1 1
 JumpNE @Label_draw_menu_gxt_number2_add_end
 
+StaticGet2 433
+fPush_0.0
+fPush 0.35
 getF1 18
 getF1 19
 getF1 20
 fPush_1.0
+push_0
 push_0
 Call @set_up_draw
 getF1 3
@@ -3763,10 +3861,14 @@ pstatic1 123
 ArrayGet1 1
 JumpNE @Label_draw_menu_gxt_number_end
 
+StaticGet2 433
+fPush_0.0
+fPush 0.35
 getF1 18
 getF1 19
 getF1 20
 fPush_1.0
+push_0
 push_0
 Call @set_up_draw
 getF1 3
@@ -3781,10 +3883,14 @@ Call @draw_number_gxt
 Jump @Label_draw_menu_bool
 
 :Label_draw_menu_gxt_number_end
+StaticGet2 433
+fPush_0.0
+fPush 0.35
 getF1 18
 getF1 19
 getF1 20
 fPush_1.0
+push_0
 push_0
 Call @set_up_draw
 getF1 3
@@ -3856,6 +3962,9 @@ Or
 
 :Label_draw_menu_number_or_5
 JumpFalse @Label_draw_menu_number_end
+StaticGet2 433
+fPush_0.0
+fPush 0.35
 getF1 18
 getF1 19
 getF1 20
@@ -3863,6 +3972,7 @@ StaticGet1 3
 fPush 0.203125
 fAdd
 push_1
+push_0
 Call @set_up_draw
 
 push_2
@@ -3888,7 +3998,7 @@ CallNative "UNK_51E7A037" 1 0
 getF1 3
 pstatic2 276
 ArrayGet1 1
-push_4
+StaticGet2 432
 CallNative "add_text_component_float" 2 0
 
 push_1
@@ -3897,6 +4007,9 @@ fPush 0.00859375
 fAdd
 setF1 28
 
+StaticGet2 433
+fPush_0.0
+fPush 0.35
 getF1 18
 getF1 19
 getF1 20
@@ -3904,6 +4017,7 @@ StaticGet1 3
 fPush 0.203125
 fAdd
 push_1
+push_0
 Call @set_up_draw
 getF1 3
 pstatic2 276
@@ -3947,6 +4061,9 @@ fPush 0.00859375
 fAdd
 setF1 28
 
+StaticGet2 433
+fPush_0.0
+fPush 0.35
 getF1 18
 getF1 19
 getF1 20
@@ -3954,6 +4071,7 @@ StaticGet1 3
 fPush 0.203125
 fAdd
 push_1
+push_0
 Call @set_up_draw
 getF1 3
 pstatic2 276
@@ -3978,6 +4096,9 @@ fPush 0.00859375
 fAdd
 setF1 28
 
+StaticGet2 433
+fPush_0.0
+fPush 0.35
 getF1 18
 getF1 19
 getF1 20
@@ -3985,6 +4106,7 @@ StaticGet1 3
 fPush 0.203125
 fAdd
 push_1
+push_0
 Call @set_up_draw
 getF1 3
 pstatic2 276
@@ -4016,7 +4138,9 @@ FromStack
 
 PushString "CommonMenu"
 PushString "arrowleft"
-fPush 0.05
+StaticGet1 3
+fPush 0.0046875
+fSub
 getF1 28
 fSub
 fPush 0.425
@@ -4055,7 +4179,9 @@ FromStack
 
 PushString "CommonMenu"
 PushString "arrowright"
-fPush 0.05
+StaticGet1 3
+fPush 0.0046875
+fSub
 fPush 0.425
 fPush 0.5
 fMul
@@ -4092,6 +4218,9 @@ getF1 3
 pstatic1 123
 ArrayGet1 1
 JumpNE @Label_draw_menu_bool_end
+StaticGet2 433
+fPush_0.0
+fPush 0.35
 getF1 18
 getF1 19
 getF1 20
@@ -4099,6 +4228,7 @@ StaticGet1 3
 fPush 0.203125
 fAdd
 push_1
+push_0
 Call @set_up_draw
 
 getF1 3
@@ -4157,7 +4287,9 @@ FromStack
 
 PushString "CommonMenu"
 PushString "shop_arrows_upANDdown"
-fPush 0.05
+StaticGet1 3
+fPush 0.0046875
+fSub
 fPush 0.225
 fPush 0.5
 fMul
@@ -4229,7 +4361,7 @@ Function 3 3 0
 PushString "NUMBER"
 CallNative "UNK_3E35563E" 1 0
 getF1 0
-push_4
+StaticGet2 432
 CallNative "add_text_component_float" 2 0
 getF1 1
 getF1 2
@@ -4282,26 +4414,26 @@ CallNative "UNK_6F8350CE" 2 0
 Return 4 0
 
 :set_up_draw
-Function 5 7 0
-push_0
-CallNative "set_text_font" 1 0
-fPush_0.0
-fPush 0.35
-CallNative "set_text_scale" 2 0
-
+Function 9 11 0
 getF1 0
+CallNative "set_text_font" 1 0
 getF1 1
 getF1 2
+CallNative "set_text_scale" 2 0
+
+getF1 3
+getF1 4
+getF1 5
 Push1 255
 CallNative "set_text_colour" 4 0
 
 fPush_0.0
-getF1 3
+getF1 6
 CallNative "set_text_wrap" 2 0
-getF1 4
+getF1 7
 CallNative "set_text_right_justify" 1 0
 
-push_0
+getF1 8
 CallNative "set_text_centre" 1 0
 push_0
 push_0
@@ -4315,4 +4447,4 @@ push_0
 push_0
 push_0
 CallNative "set_text_edge" 5 0
-Return 5 0
+Return 9 0

@@ -78,20 +78,6 @@ JumpFalse @Label_project_loop_checks_end
 :Label_project_loop_checks_end
 Return 0 0
 
-:menu_play_sound
-Function 1 1 3
-
-StaticGet2 435
-JumpFalse @Label_menu_play_sound_end
-
-iPush_-1
-getF 0
-PushString "HUD_FRONTEND_DEFAULT_SOUNDSET"
-CallNative play_sound_frontend 3 0
-
-:Label_menu_play_sound_end
-Return 1 0
-
 :project_catch_load_button_press
 Function 1 0 4
 
@@ -723,6 +709,49 @@ getF 0
 StaticSet1 10
 
 :Label_menu_set_title_end
+Return 1 0
+
+:menu_set_bool_strings
+Function 1 2 5
+
+getF 0
+StaticSet2 430
+
+getF 1
+StaticSet2 431
+
+Return 2 0
+
+:menu_set_float_dp
+Function 1 1 4
+
+getF 0
+StaticSet2 432
+
+Return 1 0
+
+:menu_set_font
+Function 1 1 4
+
+getF 0
+StaticSet2 433
+
+Return 1 0
+
+:menu_set_menu_align
+Function 1 1 4
+
+getF 0
+StaticSet2 434
+
+Return 1 0
+
+:menu_set_sfx
+Function 1 1 4
+
+getF 0
+StaticSet2 435
+
 Return 1 0
 
 :menu_addItem
@@ -1553,18 +1582,17 @@ iPush_-1
 StaticSet1 46
 
 PushString "PIM_DHIGH0"
-StaticSet2 430
 PushString "PIM_DHIGH1"
-StaticSet2 431
+Call @menu_set_bool_strings
 
 iPush_4
-StaticSet2 432
+Call @menu_set_float_dp
 
 iPush_0
-StaticSet2 433
+Call @menu_set_font
 
 iPush_1
-StaticSet2 435
+Call @menu_set_sfx
 
 Return 0 0
 
@@ -2682,6 +2710,20 @@ Return 2 1
 Function 1 1 3
 getF 0
 Return 1 1
+
+:menu_play_sound
+Function 1 1 3
+
+StaticGet2 435
+JumpFalse @Label_menu_play_sound_end
+
+iPush_-1
+getF 0
+PushString "HUD_FRONTEND_DEFAULT_SOUNDSET"
+CallNative play_sound_frontend 3 0
+
+:Label_menu_play_sound_end
+Return 1 0
 
 :menu_keyboard
 Function 1 1 36
