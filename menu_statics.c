@@ -144,6 +144,36 @@ Static_434 = 0;
 // Menu Sound Effects (0 = Off, 1 = On)
 Static_435 = 1;
 
+// Menu Header & Scroll Arrows Window
+Static_436 = 0; // R
+Static_437 = 0; // G
+Static_438 = 0; // B
+
+// Menu Items Window
+Static_439 = 0; // R
+Static_440 = 0; // G
+Static_441 = 0; // B
+
+// Menu Highlight Bar
+Static_442 = 240; // R
+Static_443 = 240; // G
+Static_444 = 240; // B
+
+// Menu Header Text & Scroll Arrows
+Static_445 = 240; // R
+Static_446 = 240; // G
+Static_447 = 240; // B
+
+// Menu Highlighted Text
+Static_448 = 0; // R
+Static_449 = 0; // G
+Static_450 = 0; // B
+
+// Menu Non Highlighted Items Text
+Static_451 = 240; // R
+Static_452 = 240; // G
+Static_453 = 240; // B
+
 // Project
 
 // project_var
