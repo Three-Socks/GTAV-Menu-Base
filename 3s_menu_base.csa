@@ -754,6 +754,84 @@ StaticSet2 435
 
 Return 1 0
 
+:menu_set_header_scroll_window_colour
+Function 1 3 3
+
+GetF 0
+StaticSet2 436
+GetF 1
+StaticSet2 437
+GetF 2
+StaticSet2 438
+
+:Label_menu_set_header_scroll_window_colour_end
+Return 3 0
+
+:menu_set_items_window_colour
+Function 1 3 3
+
+GetF 0
+StaticSet2 439
+GetF 1
+StaticSet2 440
+GetF 2
+StaticSet2 441
+
+:Label_menu_set_items_window_colour_end
+Return 3 0
+
+:menu_set_highlight_bar_colour
+Function 1 3 3
+
+GetF 0
+StaticSet2 442
+GetF 1
+StaticSet2 443
+GetF 2
+StaticSet2 444
+
+:Label_menu_set_highlight_bar_colour_end
+Return 3 0
+
+:menu_set_header_scroll_text_colour
+Function 1 3 3
+
+GetF 0
+StaticSet2 445
+GetF 1
+StaticSet2 446
+GetF 2
+StaticSet2 447
+
+:Label_menu_set_header_scroll_text_colour_end
+Return 3 0
+
+:menu_set_highlighted_text_colour
+Function 1 3 3
+
+GetF 0
+StaticSet2 448
+GetF 1
+StaticSet2 449
+GetF 2
+StaticSet2 450
+
+:Label_menu_set_highlighted_text_colour_end
+Return 3 0
+
+:menu_set_non_highlighted_text_colour
+Function 1 3 3
+
+GetF 0
+StaticSet2 451
+GetF 1
+StaticSet2 452
+GetF 2
+StaticSet2 453
+
+:Label_menu_set_non_highlighted_text_colour_end
+Return 3 0
+
 :menu_addItem
 Function 1 1 4
 
@@ -1594,6 +1672,36 @@ Call @menu_set_font
 iPush_1
 Call @menu_set_sfx
 
+iPush_0
+iPush_0
+iPush_0
+Call @menu_set_header_scroll_window_colour
+
+iPush_0
+iPush_0
+iPush_0
+Call @menu_set_items_window_colour
+
+Push1 240
+Push1 240
+Push1 240
+Call @menu_set_highlight_bar_colour
+
+Push1 240
+Push1 240
+Push1 240
+Call @menu_set_header_scroll_text_colour
+
+iPush_0
+iPush_0
+iPush_0
+Call @menu_set_highlighted_text_colour
+
+Push1 240
+Push1 240
+Push1 240
+Call @menu_set_non_highlighted_text_colour
+
 Return 0 0
 
 :menu_modify_game_state
@@ -2313,8 +2421,30 @@ Or
 :Label_catch_left_button_float_press_or2_1
 JumpFalse @Label_catch_button_press_left_float_1
 
+iPush_0
+StaticGet2 432
+JumpNE @Label_catch_button_press_left_float_dp_change_1
+
+fPush 1.0
+setF 8
+
+Jump @Label_catch_button_press_left_float_dp_change_end
+:Label_catch_button_press_left_float_dp_change_1
+
+iPush_1
+StaticGet2 432
+JumpNE @Label_catch_button_press_left_float_dp_change_else
+
+fPush 0.1
+setF 8
+
+Jump @Label_catch_button_press_left_float_dp_change_end
+:Label_catch_button_press_left_float_dp_change_else
+
 fPush 0.010
 setF 8
+
+:Label_catch_button_press_left_float_dp_change_end
 
 iPush_2
 Push1 178
@@ -2464,8 +2594,30 @@ ItoF
 fCmpLe
 JumpFalse @Label_catch_button_press_right_float_1
 
-fPush 0.010
+iPush_0
+StaticGet2 432
+JumpNE @Label_catch_button_press_right_float_dp_change_1
+
+fPush 1.0
 setF 8
+
+Jump @Label_catch_button_press_right_float_dp_change_end
+:Label_catch_button_press_right_float_dp_change_1
+
+iPush_1
+StaticGet2 432
+JumpNE @Label_catch_button_press_right_float_dp_change_else
+
+fPush 0.1
+setF 8
+
+Jump @Label_catch_button_press_right_float_dp_change_end
+:Label_catch_button_press_right_float_dp_change_else
+
+fPush 0.01
+setF 8
+
+:Label_catch_button_press_right_float_dp_change_end
 
 iPush_2
 Push1 178
@@ -3095,10 +3247,10 @@ fSub
 fPush 0.084722
 fPush 0.225
 getF 7
-getF 2
-getF 3
-getF 4
-getF 5
+StaticGet2 439
+StaticGet2 440
+StaticGet2 441
+Push1 186
 Call @draw_rect
 StaticGet1 3
 fPush 0.0046875
@@ -3106,9 +3258,9 @@ fSub
 fPush 0.04999922
 fPush 0.225
 StaticGet1 22
-iPush_0
-iPush_0
-iPush_0
+StaticGet2 436
+StaticGet2 437
+StaticGet2 438
 Push1 204
 Call @draw_rect
 
@@ -3126,9 +3278,9 @@ fPush 0.04999922
 fAdd
 fPush 0.225
 StaticGet1 22
-iPush_0
-iPush_0
-iPush_0
+StaticGet2 436
+StaticGet2 437
+StaticGet2 438
 Push1 204
 Call @draw_rect
 
@@ -3631,9 +3783,9 @@ setF 17
 StaticGet2 433
 fPush_0.0
 fPush 0.35
-getF 12
-getF 13
-getF 14
+StaticGet2 445
+StaticGet2 446
+StaticGet2 447
 fPush_1.0
 iPush_0
 iPush_0
@@ -3649,9 +3801,9 @@ JumpLE @Label_draw_menu_LOOP
 StaticGet2 433
 fPush_0.0
 fPush 0.35
-getF 12
-getF 13
-getF 14
+StaticGet2 445
+StaticGet2 446
+StaticGet2 447
 StaticGet1 3
 fPush 0.215625
 fAdd
@@ -3685,12 +3837,11 @@ fPush 0.0100
 fAdd
 JumpLE @Label_draw_menu_bool_end
 
-
-getF 12
+StaticGet2 451
 setF 18
-getF 13
+StaticGet2 452
 setF 19
-getF 14
+StaticGet2 453
 setF 20
 
 getF 7
@@ -3708,9 +3859,9 @@ fSub
 getF 7
 fPush 0.225
 getF 8
-Push1 240
-Push1 240
-Push1 240
+StaticGet2 442
+StaticGet2 443
+StaticGet2 444
 Push1 255
 Call @draw_rect
 getF 15
@@ -4164,10 +4315,10 @@ getF 23
 ItoF
 fDiv
 fPush_0.0
-getF 24
-getF 25
-getF 26
-getF 27
+StaticGet2 448
+StaticGet2 449
+StaticGet2 450
+Push1 255
 CallNative draw_sprite 11 0
 
 PushString "CommonMenu"
@@ -4203,10 +4354,10 @@ getF 23
 ItoF
 fDiv
 fPush_0.0
-getF 24
-getF 25
-getF 26
-getF 27
+StaticGet2 448
+StaticGet2 449
+StaticGet2 450
+Push1 255
 CallNative draw_sprite 11 0
 
 :Label_draw_menu_number_goto_end
@@ -4311,10 +4462,10 @@ getF 23
 ItoF
 fDiv
 fPush_0.0
-getF 24
-getF 25
-getF 26
-getF 27
+StaticGet2 445
+StaticGet2 446
+StaticGet2 447
+Push1 255
 CallNative draw_sprite 11 0
 
 :Label_draw_menu_draw_sprite_end
