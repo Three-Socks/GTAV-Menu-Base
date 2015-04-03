@@ -744,6 +744,18 @@ Function 1 1 4
 getF 0
 StaticSet2 434
 
+iPush_0
+StaticGet2 434
+JumpNE @Label_position_setup_right
+fPush 0.0546875
+StaticSet1 3
+Jump @Label_position_setup_end
+
+:Label_position_setup_right
+fPush 0.7546875
+StaticSet1 3
+
+:Label_position_setup_end
 Return 1 0
 
 :menu_set_sfx
@@ -1600,16 +1612,8 @@ Return 3 0
 :menu_setup
 Function 1 0 2
 
-iPush_0
-StaticGet2 434
-JumpNE @Label_position_setup_right
 fPush 0.0546875
 StaticSet1 3
-Jump @Label_position_setup_end
-:Label_position_setup_right
-fPush 0.7546875
-StaticSet1 3
-:Label_position_setup_end
 
 iPush_0
 StaticSet1 4
@@ -3771,13 +3775,13 @@ pFrame1 22
 pFrame1 23
 CallNative get_screen_resolution 2 0
 
-iPush_0
+StaticGet2 448
 setF 15
 
-iPush_0
+StaticGet2 449
 setF 16
 
-iPush_0
+StaticGet2 450
 setF 17
 
 StaticGet2 433
