@@ -1,5 +1,5 @@
 /*
-	Statics 1-499 Menu reserved
+	Statics 1-599 Menu reserved
 */
 
 // (float) menu_x
@@ -94,87 +94,139 @@ Static_45
 Static_46
 
 // (char) frontend_items_button (6)
-Static_47[* 6]
+Static_47[*6]
 
 // (char) frontend_items_name (6)
-Static_54[* 6]
+Static_54[*6]
 
 // (uint) last_selected (10)
-Static_61[* 10]
+Static_61[*10]
 
 // (char) menu_items_name (50)
-Static_72[* 50]
+Static_72[*50]
 
-// (uint) menu_items_type (1 = number, 2 = float, 3 = bool, 4 = GXT, 5 = vehicle hash, 6 = keyboard string, 7 = keyboard number, 8 = add number, 9 = gxt add number, 10 = gxt add number2, 11 = gxt number, 12 = keyboard float, 13 = number format, 14 = keyboard number format) (50)
-Static_123[* 50]
+/* (uint) menu_items_type (1 = number, 2 = float, 3 = bool, 4 = GXT, 5 = vehicle hash, 6 = keyboard string, 7 = keyboard number, 8 = add number, 9 = gxt add number,
+10 = gxt add number2, 11 = gxt number, 12 = keyboard float, 13 = number format, 14 = keyboard number format, 15 = string) (50)*/
+Static_123[*50]
 
 // (int) menu_items_extra_val (50)
-Static_174[* 50]
+Static_174[*50]
 
 // (bool) menu_items_action (50)
-Static_225[* 50]
+Static_225[*50]
 
 // (int) menu_items_num_val (50)
-Static_276[* 50]
+Static_276[*50]
 
 // (float) menu_items_float_val (50)
-Static_327[* 50]
+Static_327[*50]
 
-// menu_just_opened
+// (uint) menu_just_opened
 Static_378
 
-// menu_stored_data
-Static_379[* 50]
+// (Any) menu_stored_data (50)
+Static_379[*50]
 
-// (char) custom bool string off/no
-Static_430
+// (Any) menu_stored_data_2 (50)
+Static_430[*50]
 
-// (char) custom bool string on/yes
-Static_431
+// (char) custom_bool_string_off
+Static_481;
 
-// (uint) custom float dp
-Static_432
+// (char) custom_bool_string_on
+Static_482;
 
-// Fonts (0-7)
-Static_433 = 0;
+// (char) custom_bool_sprite_on_highlighted
+Static_483;
 
-// Menu Position (0 = Left, 1 = Right)
-Static_434 = 0;
+// (char) custom bool sprite_off_highlighted
+Static_484;
 
-// Menu Sound Effects (0 = Off, 1 = On)
-Static_435 = 1;
+// (char) custom_bool_sprite_on_non_highlighted
+Static_485;
 
-// Menu Header & Scroll Arrows Window
-Static_436 = 0; // R
-Static_437 = 0; // G
-Static_438 = 0; // B
+// (char) custom_bool_sprite_off_non_highlighted
+Static_486;
 
-// Menu Items Window
-Static_439 = 0; // R
-Static_440 = 0; // G
-Static_441 = 0; // B
+// (int) custom float dp
+Static_487;
 
-// Menu Highlight Bar
-Static_442 = 240; // R
-Static_443 = 240; // G
-Static_444 = 240; // B
+// (uint) menu_items_font
+Static_488 = 0;
 
-// Menu Header Text & Scroll Arrows
-Static_445 = 240; // R
-Static_446 = 240; // G
-Static_447 = 240; // B
+// (uint) menu_header_font
+Static_489 = 0;
 
-// Menu Highlighted Text
-Static_448 = 0; // R
-Static_449 = 0; // G
-Static_450 = 0; // B
+// (int) menu_align (0 = Left, 1 = Right)
+Static_490 = 0;
 
-// Menu Non Highlighted Items Text
-Static_451 = 240; // R
-Static_452 = 240; // G
-Static_453 = 240; // B
+// (bool) menu_sound_effects (0 = Off, 1 = On)
+Static_491 = 1;
+
+// (uint) Menu Header & Scroll Arrows Window Colour
+Static_492 = 0; // R
+Static_493 = 0; // G
+Static_494 = 0; // B
+
+// (uint) Menu Items Window Colour
+Static_495 = 0; // R
+Static_496 = 0; // G
+Static_497 = 0; // B
+
+// (uint) Menu Highlight Bar Colour
+Static_498 = 240; // R
+Static_499 = 240; // G
+Static_500 = 240; // B
+
+// (uint) Menu Header Text & Scroll Arrows Colour
+Static_501 = 240; // R
+Static_502 = 240; // G
+Static_503 = 240; // B
+
+// (uint) Menu Highlighted Text Colour
+Static_504 = 0; // R
+Static_505 = 0; // G
+Static_506 = 0; // B
+
+// (uint) Menu Non Highlighted Items Text Colour
+Static_507 = 240; // R
+Static_508 = 240; // G
+Static_509 = 240; // B
+
+// (int) menu_item_selected
+Static_510;
+// (int) menu_items_selected (50)
+Static_511[*50];
+// (bool) menu_use_bool_sprite
+Static_562;
+// (char) menu_selected_sprite
+Static_563;
+// (char) menu_selected_sprite_hover
+Static_564;
+// (bool) menu_action_confirm
+Static_565;
+// (bool) menu_ped_action_mode_loaded
+Static_566;
+// (bool) menu_ped_action_mode
+Static_567;
+
+// (bool) menu_notifications
+Static_568;
+// (int) menu_last_notification
+Static_569;
+
+// (int) trainer_request_time
+Static_570;
+
+// Init to Hex Handle
+Static_571;
+
+// (uint) model colour check
+Static_572; // Red
+Static_573; // Green
+Static_574; // Blue
 
 // Project
 
 // project_var
-Static_500
+Static_600
